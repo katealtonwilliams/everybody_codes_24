@@ -1,7 +1,5 @@
 import regex as re
 import numpy as np
-import time
-
 
 def count_runic_words_p1(input_file: str) -> int:
     with open(input_file) as words_and_runes:
