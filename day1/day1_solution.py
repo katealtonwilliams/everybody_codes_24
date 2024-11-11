@@ -13,29 +13,34 @@ def calculate_potions_p1(input_file: str) -> int:
 def calculate_potions_p2(input_file: str, groupsize=2) -> int:
     with open(input_file) as creatures:
         creatures = creatures.readline().strip()
-    pairwise_enemies = [creatures[i] + creatures[i+1] for i in range(0, len(creatures), 2)]
+    pairwise_enemies = [
+        creatures[i] + creatures[i + 1] for i in range(0, len(creatures), 2)
+    ]
     total_potions = 0
     for pair in pairwise_enemies:
         for enemy, potions in potion_map.items():
             total_potions += pair.count(enemy) * potions
-        if 'x' not in pair:
+        if "x" not in pair:
             total_potions += 2
     return total_potions
+
 
 def calculate_potions_p3(input_file: str) -> int:
     with open(input_file) as creatures:
         creatures = creatures.readline().strip()
-    pairwise_enemies = [creatures[i] + creatures[i+1] + creatures[i+2] for i in range(0, len(creatures), 3)]
+    pairwise_enemies = [
+        creatures[i] + creatures[i + 1] + creatures[i + 2]
+        for i in range(0, len(creatures), 3)
+    ]
     total_potions = 0
     for pair in pairwise_enemies:
         for enemy, potions in potion_map.items():
             total_potions += pair.count(enemy) * potions
-        if 'x' not in pair:
+        if "x" not in pair:
             total_potions += 6
-        if pair.count('x') == 1:
+        if pair.count("x") == 1:
             total_potions += 2
     return total_potions
-
 
 
 if __name__ == "__main__":
@@ -48,10 +53,7 @@ if __name__ == "__main__":
 
     print(calculate_potions_p2("day1/day1_inputs/day1_practise_p2.txt"))
     print(calculate_potions_p2("day1/day1_inputs/day1_final_p2.txt"))
-    
-    
+
     # part 3
     print(calculate_potions_p3("day1/day1_inputs/day1_practise_p3.txt"))
     print(calculate_potions_p3("day1/day1_inputs/day1_final_p3.txt"))
-    
-    
