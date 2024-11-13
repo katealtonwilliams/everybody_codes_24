@@ -16,7 +16,7 @@ def create_branch_map(input_file: str) -> dict[str]:
     return tree_map
 
 
-def find_unique_path(input_file: str, first_character: bool = False) -> int:
+def find_unique_path(input_file: str, first_character: bool = False) -> str:
     path_map = create_branch_map(input_file)
     all_paths = {}
     for node in path_map.keys():
