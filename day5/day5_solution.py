@@ -70,13 +70,35 @@ def find_length_of_dance(input_file: str, count_times: int) -> int:
             return key * (current_round - 1)
 
 
-if __name__ == "__main__":
-    # # part 1
+def find_largest_number(input_file: str, rounds: int) -> int:
+    current_grid = create_grid_p1(input_file)
+    current_round = 1
+    max_number = 0
+    print(len(current_grid))
+    while current_round < rounds:
+        current_grid = run_one_round(current_grid, current_round)
+        first_row = np.char.mod("%i", current_grid[1])
+        number = int(int(("").join(first_row)) / 10)
+        if number > max_number:
+            print(current_round)
+            print(number)
+            max_number = number
+        current_round += 1
+    return max_number
 
-    # print(run_n_rounds("day5/day5_inputs/day5_practise_p1.txt", 10))
-    # print(run_n_rounds("day5/day5_inputs/day5_final_p1.txt", 10))
+
+if __name__ == "__main__":
+    # part 1
+
+    print(run_n_rounds("day5/day5_inputs/day5_practise_p1.txt", 10))
+    print(run_n_rounds("day5/day5_inputs/day5_final_p1.txt", 10))
 
     # part 2
 
     print(find_length_of_dance("day5/day5_inputs/day5_practise_p2.txt", 2024))
     print(find_length_of_dance("day5/day5_inputs/day5_final_p2.txt", 2024))
+
+    # part 3
+
+    print(find_largest_number("day5/day5_inputs/day5_practise_p2.txt", 8))
+    print(find_largest_number("day5/day5_inputs/day5_final_p3.txt", 80000))
