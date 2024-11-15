@@ -16,7 +16,6 @@ def find_total_strikes_p3(file_name: str) -> int:
         nail_heights = [int(nail.strip()) for nail in raw_nails.readlines()]
     strike_count = 0
     median_nail = median(nail_heights)
-    print(median_nail)
     for nail in nail_heights:
         strike_count += abs(nail - median_nail)
     return strike_count

@@ -30,7 +30,8 @@ def find_min_beetles_properly(input_file: str, stamps: list[int]) -> int:
         if sparkball // stamps[0] > 0:
             beetle_count += sparkball // stamps[0] - 1
             sparkball = sparkball % stamps[0] + stamps[0]
-        paths = [(0, sparkball)]
+        paths = [(0, 1200)]
+        print(paths)
         while found_smallest_path == False:
             length, remaining_sparkball = paths.pop()
             for stamp in stamps:
